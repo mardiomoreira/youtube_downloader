@@ -23,6 +23,7 @@ class FUNCOES():
           for item2 in range(self.tamanho2):
                time.sleep(1)
                self.barra_Progresso2['value']=item2
+               self.yt2.streams.get_highest_resolution().download(output_path=self.caminho2)
                self.janela.update()
           #print("LINK: ", self.link2)
           self.yt2.streams.filter(progressive=True, file_extension='mp4').order_by('resolution').desc().first().download()
@@ -37,7 +38,7 @@ class FUNCOES():
         # print("Pasta :",self.caminho1)
         # print("Link: ", self.link1)
         if (self.caminho1 == "") or (self.link1 == ""):
-          messagebox.showerror('Erro', 'Todos os camboa devem ser preenchidos!!!')
+          messagebox.showerror('Erro', 'Todos os campos devem ser preenchidos!!!')
         else:
           if not 'list' in self.link1:
               messagebox.showerror('URL não é de uma PLAYLIST','O link deve ser de uma Playlist.\nPra unico vídeo use a outra ABA')
